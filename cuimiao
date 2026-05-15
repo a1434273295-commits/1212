@@ -1,0 +1,19 @@
+mkdir famous-repos-tour && cd famous-repos-tour
+git clone https://github.com/git/git.git
+cd git
+git log --oneline | wc -l                  # 총 커밋 수 확인
+git log --reverse --oneline | head -5       # 최초 커밋 5개
+cd ..   # famous-repos-tour 로 돌아가기
+git clone --depth=1 https://github.com/torvalds/linux.git
+cd linux
+git shortlog -sn | head -10        # 최다 기여자 TOP 10
+ls -la                              # 디렉토리 구조 살펴보기
+cat MAINTAINERS | head -50          # 거버넌스 문서 일부
+git clone <your-chosen-repo-url>
+cd <repo-name>
+git log --since='1 month ago' --oneline | wc -l
+git log --pretty=format:'%h %an %s' | head -20
+git log --author='<name-or-email>' --oneline | head -20
+git log --author='<name-or-email>' --stat | head -50
+git show <commit-hash>   # 특정 커밋의 diff 보기
+https://github.com/<owner>/<repo>/issues?q=is:open+label:%22good+first+issue%22
